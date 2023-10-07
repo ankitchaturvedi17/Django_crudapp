@@ -1,0 +1,74 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+    {% load static %}  
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<form method="POST" class="post-form" action="/update/{{business.bid}}">  
+        {% csrf_token %}  
+    <div class="container">  
+<br>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <h3>Update Details</h3>  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Business Id:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="bid" id="id_bid" required maxlength="20" value="{{ business.bid }}"/>  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Business Name:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="bname" id="id_bname" required maxlength="100" value="{{ business.bname }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Business Email:</label>  
+    <div class="col-sm-4">  
+        <input type="email" name="bemail" id="id_bemail" required maxlength="254" value="{{ business.bemail }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Business bownerinfo:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="bownerinfo" id="id_bownerinfo" required maxlength="15" value="{{ business.bownerinfo }}" />  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Business baddressl1:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="baddressl1" id="id_baddressl1" required maxlength="15" value="{{ business.baddressl1 }}" />  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Business baddressl2:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="baddressl2" id="id_baddressl2" required maxlength="15" value="{{ business.baddressl2 }}" />  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Business bsize:</label>  
+    <div class="col-sm-4">  
+        <input type="number" name="bsize" id="id_bsize" required maxlength="15" value="{{ business.bsize }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <button type="submit" class="btn btn-success">Update</button>  
+    </div>  
+  </div>  
+    </div>  
+</form>  
+</body>  
+</html>  

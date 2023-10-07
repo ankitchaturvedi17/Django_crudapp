@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  nginx:
+    build: ./nginx
+    image: nginx
+    container_name: "nginx_crudapp"
+    ports:
+      - 80:80
+    depends_on:
+      - django_app
+    mem_limit: "128m"
+    mem_reservation: "64m"
+    cpus: "0.25"
+    cpuset: "3"
+  django_app:
+    image: django_app
+    build:
+      context: ./crudapp
+    container_name: "crudapp_container"
+    ports:
+      - 8001:8001
+    #command: gunicorn crudapp.wsgi --bind 0.0.0.0:8001
+    command : python manage.py runserver 0.0.0.0:8001

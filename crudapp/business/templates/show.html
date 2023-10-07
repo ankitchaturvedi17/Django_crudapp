@@ -1,0 +1,48 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Business Details</title>  
+     {% load static %}  
+     {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Business ID</th>  
+        <th>Business Name</th>  
+        <th>Business Email</th>  
+        <th>Business Owner Info</th>
+        <th>Business Address L1</th>
+        <th>Business Address L2</th>
+        <th>Business Size</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for business in Businesss %}  
+    <tr>  
+        <td>{{ business.bid }}</td>  
+        <td>{{ business.bname }}</td>  
+        <td>{{ business.bemail }}</td>  
+        <td>{{ business.bownerinfo }}</td>
+        <td>{{ business.baddressl1 }}</td>
+        <td>{{ business.baddressl2 }}</td>  
+        <td>{{ business.bsize }}</td>  
+        <td>  
+            <a href="/edit/{{ business.bid }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ business.bid }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/create" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  
